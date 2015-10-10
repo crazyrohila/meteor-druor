@@ -14,7 +14,7 @@ if (Meteor.isClient) {
   Template.editor.events = {
     "keydown #editor": function(e) {
       var id = "1";
-      if (e.keyCode !== 13) {
+      if (e.keyCode !== 27) {
         return;
       }
       e.preventDefault();
