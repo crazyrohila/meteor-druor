@@ -1,18 +1,19 @@
 <head>
   <title>druor</title>
+  <link href="http://d2v52k3cl9vedd.cloudfront.net/basscss/7.0.4/basscss.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="container col-12">
   <h1>Welcome to Drupal Meteor!</h1>
   {{> navigation}}
 </body>
 
 <template name="navigation">
-  <ul>
-    <li><a href="{{pathFor route='home'}}">Home</a></li>
-    <li><a href="{{pathFor route='view'}}">View</a></li>
-    <li><a href="{{pathFor route='edit'}}">Edit</a></li>
-  </ul>
+  <nav class="clearfix">
+    <a class="btn py2" href="{{pathFor route='home'}}">Home</a>
+    <a class="btn py2" href="{{pathFor route='view'}}">View</a>
+    <a class="btn py2" href="{{pathFor route='edit'}}">Edit</a>
+  </nav>
 </template>
 
 <template name="home">
@@ -24,5 +25,17 @@
 </template>
 
 <template name="edit">
+  <div>
     <h1>Edit Mode</h1>
+    <form class="sm-col-6">
+      <div class="form-item">
+        <input type="text" name="title" class="block col-12 mb1 field" placeholder="Title" required="true" />
+      </div>
+      <br/>
+      <div class="form-item">
+        <textarea type="textarea" class="block col-12 mb1 field" rows="10" name="body" placeholder="Description"></textarea>
+      </div>
+      <input type="submit" name="submit" />
+    </form>
+  </div>
 </template>
