@@ -1,0 +1,28 @@
+<head>
+  <title>druor</title>
+</head>
+
+<body>
+  <h1>Welcome to Drupal Meteor!</h1>
+  {{> navigation}}
+</body>
+
+<template name="navigation">
+  <ul>
+    <li><a href="{{pathFor route='home'}}">Home</a></li>
+    <li><a href="{{pathFor route='view'}}">View</a></li>
+    <li><a href="{{pathFor route='edit'}}">Edit</a></li>
+  </ul>
+</template>
+
+<template name="home">
+    <p>Welcome to the Drupal Meteor (Druor).</p>
+</template>
+
+<template name="view">
+    <h1>View Mode</h1>
+</template>
+
+<template name="edit">
+    <h1>Edit Mode</h1>
+</template>
