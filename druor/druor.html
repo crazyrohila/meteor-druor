@@ -33,9 +33,16 @@
       </div>
       <br/>
       <div class="form-item">
-        <textarea type="textarea" class="block col-12 mb1 field" rows="10" name="body" placeholder="Description"></textarea>
+        {{> editor}}
       </div>
       <input type="submit" name="submit" />
     </form>
   </div>
+</template>
+
+<template name="editor">
+    <h1>{{title}}</h1>
+    {{#with docid}}
+      {{> sharejsText docid=this id="editor" name="body"}}
+    {{/with}}
 </template>
