@@ -3,12 +3,12 @@ Router.route('/', {
   name: 'home'
 });
 
-Router.route('/view', {
+Router.route('node/:nid/view', {
   name: 'view',
   template: 'view'
 });
 
-Router.route('/edit', {
+Router.route('node/:nid/edit', {
   name: 'edit',
   template: 'edit'
 });

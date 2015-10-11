@@ -1,24 +1,36 @@
-Template.editor.helpers({
-  docid: function() {
-    return "1";
-  },
+var nid = 1;
+Meteor.call("get", nid, function(err, data) {
+  if (err) {
+    console.log(err);
+  }
+  Session.set('node', data);
+});
+
+Template.edit.helpers({
   title: function() {
-    return (ref = Docs.findOne("1")) != null ? ref.title : void 0;
+    return Session.get('node').title;
   }
 });
 
-Template.editor.events = {
+Template.editor.helpers({
+  docid: function() {
+    return nid.toString();
+  }
+});
+
+Template.edit.events = {
   "keydown #editor": function(e) {
-    var id = "1";
     if (e.keyCode !== 27) {
       return;
     }
+    var node = Session.get('node');
     e.preventDefault();
     $(e.target).blur();
-    var title = (ref = Docs.findOne("1")) != null ? ref.title : void 0;
-    return Docs.update(id, {
-      title: title,
-      body: e.target.value
-    });
+    if ($('#title').val() != node.title) {
+      node.title = $('#title').val();
+    }
+    node.body = e.target.value;
+    Meteor.call('update', node);
+    return;
   }
 };

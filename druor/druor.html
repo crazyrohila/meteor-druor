@@ -11,8 +11,8 @@
 <template name="navigation">
   <nav class="clearfix">
     <a class="btn py2" href="{{pathFor route='home'}}">Home</a>
-    <a class="btn py2" href="{{pathFor route='view'}}">View</a>
-    <a class="btn py2" href="{{pathFor route='edit'}}">Edit</a>
+    <a class="btn py2" href="/node/1/view">View</a>
+    <a class="btn py2" href="/node/1/edit">Edit</a>
   </nav>
 </template>
 
@@ -25,11 +25,12 @@
 </template>
 
 <template name="edit">
+{{data}}
   <div>
     <h1>Edit Mode</h1>
     <form class="sm-col-6">
       <div class="form-item">
-        <input type="text" name="title" class="block col-12 mb1 field" placeholder="Title" required="true" />
+        <input type="text" name="title" class="block col-12 mb1 field" placeholder="Title" required="true" id="title" value="{{title}}" />
       </div>
       <br/>
       <div class="form-item">
@@ -43,6 +44,6 @@
 <template name="editor">
     <h1>{{title}}</h1>
     {{#with docid}}
-      {{> sharejsText docid=this id="editor" name="body"}}
+      {{> sharejsText docid=this id="editor" name="body" row="5" column="5"}}
     {{/with}}
 </template>
