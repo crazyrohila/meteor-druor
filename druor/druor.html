@@ -25,10 +25,11 @@
 </template>
 
 <template name="edit">
-{{data}}
   <div>
     <h1>Edit Mode</h1>
     <form class="sm-col-6">
+    {{title}}
+    {{body}}
       <div class="form-item">
         <input type="text" name="title" class="block col-12 mb1 field" placeholder="Title" required="true" id="title" value="{{title}}" />
       </div>
@@ -36,14 +37,14 @@
       <div class="form-item">
         {{> editor}}
       </div>
-      <input type="submit" name="submit" />
+      <input type="submit" name="submit" id="submit" />
     </form>
   </div>
 </template>
 
 <template name="editor">
     <h1>{{title}}</h1>
-    {{#with docid}}
-      {{> sharejsText docid=this id="editor" name="body" row="5" column="5"}}
+    {{#with nid}}
+      {{> sharejsText docid=nid id="editor" name="body"}}
     {{/with}}
 </template>
