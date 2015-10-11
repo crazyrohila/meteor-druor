@@ -1,15 +1,7 @@
+// @TODO Need to get this from routeparams
+// change this to see result
 var nid = 1;
-// Meteor.call('getNodeFromUrl', "http://dev-druor.pantheon.io/rest/view/node/1", function(err, data) {
-//   var keys = [];
-//   var node = JSON.parse(data);
-//   Meteor.call("get", node.nid, function(err, data) {
-//     if (err) {
-//       console.log(err);
-//     }
-//     node = data;
-//   });
-//   Meteor.call('insert', data);
-// });
+
 Meteor.call("get", nid, function(err, data) {
   if (err) {
     console.log(err);
